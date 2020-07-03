@@ -53,6 +53,7 @@ export default function handleRequest(req, res) {
 
 /**
  * Edit this function to create your own response 
+ * Reference: https://cloud.google.com/dialogflow/docs/fulfillment-webhook#webhook_response
  * 
  * @param {*} body Request body from Dialog Flow
  */

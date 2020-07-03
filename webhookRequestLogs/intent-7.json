@@ -1,0 +1,60 @@
+{
+  "headers": {
+    "content-type": "application/json",
+    "host": "c8a9c8e8b85e.ngrok.io",
+    "content-length": "1493",
+    "accept": "*/*",
+    "user-agent": "Google-Dialogflow",
+    "accept-encoding": "gzip,deflate,br",
+    "x-forwarded-proto": "https",
+    "x-forwarded-for": "66.102.6.79"
+  },
+  "params": {},
+  "query": {},
+  "body": {
+    "responseId": "3a227f25-8830-46cb-8c20-5b64b6156fa3-425db6e2",
+    "queryResult": {
+      "queryText": "오늘 날씨 어떤지 알려줘",
+      "parameters": {
+        "date-time": "2020-07-03T12:00:00+09:00",
+        "weather": "날씨"
+      },
+      "allRequiredParamsPresent": true,
+      "fulfillmentMessages": [{
+        "text": {
+          "text": [""]
+        }
+      }],
+      "outputContexts": [{
+        "name": "projects/playground-sklyld/agent/sessions/b46af09d-358e-007d-20f5-e9b07a3a7d3b/contexts/wakeuptopintent-followup",
+        "lifespanCount": 4,
+        "parameters": {
+          "date-time": "2020-07-03T12:00:00+09:00",
+          "date-time.original": "오늘",
+          "weather": "날씨",
+          "weather.original": "날씨"
+        }
+      }, {
+        "name": "projects/playground-sklyld/agent/sessions/b46af09d-358e-007d-20f5-e9b07a3a7d3b/contexts/__system_counters__",
+        "parameters": {
+          "no-input": 0,
+          "no-match": 0,
+          "date-time": "2020-07-03T12:00:00+09:00",
+          "date-time.original": "오늘",
+          "weather": "날씨",
+          "weather.original": "날씨"
+        }
+      }],
+      "intent": {
+        "name": "projects/playground-sklyld/agent/intents/0bfd272b-a2f6-418c-b728-00c20b502816",
+        "displayName": "HowIsWeather"
+      },
+      "intentDetectionConfidence": 0.6363183,
+      "languageCode": "ko"
+    },
+    "originalDetectIntentRequest": {
+      "payload": {}
+    },
+    "session": "projects/playground-sklyld/agent/sessions/b46af09d-358e-007d-20f5-e9b07a3a7d3b"
+  }
+}

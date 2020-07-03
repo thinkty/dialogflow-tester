@@ -4,7 +4,7 @@ import fs from 'fs';
 import { getTime } from './util.js';
 
 const requestDir = 'webhookRequestLogs';
-const resposneDir = 'sampleResponseLogs'; // TODO: change to webhookResponseLogs
+const resposneDir = 'webhookResponseLogs';
 
 /**
  * Handle requests from Dialog Flow
@@ -80,15 +80,15 @@ function createResponse(body) {
         }
       }
     ],
-    outputContexts: [
-      {
-        name: `${session}/contexts/exampleContext`,
-        lifespanCount: 3
-      }
-    ],
-    followupEventInput: {
-      name: "doesnotexist",
-      languageCode: lang
-    }
+    // outputContexts: [
+    //   {
+    //     name: `${session}/contexts/exampleContext`,
+    //     lifespanCount: 3
+    //   }
+    // ],
+    // followupEventInput: {
+    //   name: "doesnotexist",
+    //   languageCode: lang
+    // }
   };
 }

@@ -58,14 +58,25 @@ export default function handleRequest(req, res) {
  * @param {*} body Request body from Dialog Flow
  */
 function createResponse(body) {
+  const queryResult = body.queryResult;
+  const session = body.session;
+
+  // Edit this part to send your own response
   return {
-    "fulfillmentMessages": [
+    fulfillmentMessages: [
       {
-        "text": {
-          "text": [
-            "Text response from webhook"
+        text: {
+          text: [
+            "Text response from webhook",
+            "Another text response from webhook"
           ]
         }
+      }
+    ],
+    outputContexts: [
+      {
+        name: `${session}/contexts/exampleContext`,
+        lifespanCount: 3
       }
     ]
   };

@@ -1,1 +1,7 @@
-{"fulfillmentMessages":[{"text":{"text":["Text response from webhook"]}}]}
+{
+  "fulfillmentMessages": [{
+    "text": {
+      "text": ["Text response from webhook"]
+    }
+  }]
+}

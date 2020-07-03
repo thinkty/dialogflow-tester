@@ -20,6 +20,10 @@ app.post('/', (req, res) => {
   handleRequest(req, res);
 });
 
+app.get('/', (req, res) => {
+  res.send('Please use the POST method to test it');
+})
+
 app.listen(port, async () => {
   console.log(`API tester listening on port ${port}`);
   console.log(`Testing for ${

@@ -6,6 +6,12 @@ import { getTime } from './util.js';
 const requestDir = 'webhookRequestLogs';
 const resposneDir = 'sampleResponseLogs'; // TODO: change to webhookResponseLogs
 
+/**
+ * Handle requests from Dialog Flow
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 export default function handleRequest(req, res) {
   try {
 
@@ -16,19 +22,43 @@ export default function handleRequest(req, res) {
       body: req.body,
     };
 
+    // Save the request to a file 
     if (process.env.testing === 'req') {
       if (!fs.existsSync(requestDir)) {
         fs.mkdirSync(requestDir);
       }
-      fs.writeFileSync(`${requestDir}/intent-${getTime()}.json`, JSON.stringify(request));
+      fs.writeFileSync(`${requestDir}/req-${getTime()}.json`, JSON.stringify(request));
     }
 
-
-    // TODO: format response    
-
+    if (process.env.testing === 'res') {
+      // Send your own response
+      const resp = createResponse(req.body);
+      res.json(resp);
+      return;
+    }
     res.sendStatus(200);
+
   } catch (error) {
     console.log(error)
     res.sendStatus(500);
   }
 };
+
+/**
+ * Edit this function to create your own response 
+ * 
+ * @param {*} body Request body from Dialog Flow
+ */
+function createResponse(body) {
+  return {
+    "fulfillmentMessages": [
+      {
+        "text": {
+          "text": [
+            "Text response from webhook"
+          ]
+        }
+      }
+    ]
+  };
+}

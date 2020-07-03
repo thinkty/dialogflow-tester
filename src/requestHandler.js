@@ -1,11 +1,12 @@
 'use strict';
 
 import fs from 'fs';
+import { getTime } from './util.js';
 
-const intDir = 'webhookRequestLogs';
-let counter = 0;
+const requestDir = 'webhookRequestLogs';
+const resposneDir = 'sampleResponseLogs'; // TODO: change to webhookResponseLogs
 
-const _default = function handleRequest(req, res) {
+export default function handleRequest(req, res) {
   try {
 
     const request = {
@@ -15,15 +16,19 @@ const _default = function handleRequest(req, res) {
       body: req.body,
     };
 
-    console.log(request);
+    if (process.env.testing === 'req') {
+      if (!fs.existsSync(requestDir)) {
+        fs.mkdirSync(requestDir);
+      }
+      fs.writeFileSync(`${requestDir}/intent-${getTime()}.json`, JSON.stringify(request));
+    }
 
-    fs.writeFileSync(`${intDir}/intent-${counter++}.json`, JSON.stringify(request));
 
-    return res.sendStatus(200);
+    // TODO: format response    
+
+    res.sendStatus(200);
   } catch (error) {
     console.log(error)
-    return res.sendStatus(500);
+    res.sendStatus(500);
   }
 };
-
-export { _default as default };

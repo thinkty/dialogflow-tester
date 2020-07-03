@@ -1,3 +1,7 @@
+# Requst, Response Logs
+webhookRequestLogs/
+webhookResponseLogs/
+
 # Logs
 logs
 *.log

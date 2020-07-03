@@ -14,7 +14,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', (req, res) => {
+// According to the guides, DialogFlow will send a POST request
+// https://cloud.google.com/dialogflow/docs/fulfillment-webhook#webhook_request
+app.post('/', (req, res) => {
   handleRequest(req, res);
 });
 

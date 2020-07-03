@@ -1,1 +1,15 @@
-{"fulfillmentMessages":[{"text":{"text":["I was suppose to say: 내가 잘 이해를 못 했어 다시 말해줄래?"]}}],"outputContexts":[{"name":"projects/playground-sklyld/agent/sessions/b46af09d-358e-007d-20f5-e9b07a3a7d3b/contexts/exampleContext","lifespanCount":3}],"followupEventInput":{"name":"doesnotexist","languageCode":"ko"}}
+{
+  "fulfillmentMessages": [{
+    "text": {
+      "text": ["I was suppose to say: 내가 잘 이해를 못 했어 다시 말해줄래?"]
+    }
+  }],
+  "outputContexts": [{
+    "name": "projects/playground-sklyld/agent/sessions/b46af09d-358e-007d-20f5-e9b07a3a7d3b/contexts/exampleContext",
+    "lifespanCount": 3
+  }],
+  "followupEventInput": {
+    "name": "doesnotexist",
+    "languageCode": "ko"
+  }
+}

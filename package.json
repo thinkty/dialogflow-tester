@@ -1,0 +1,37 @@
+{
+  "name": "dialogflow-tester",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A simple Node based Webhook to test Dialog Flow APIs",
+  "main": "index.js",
+  "scripts": {
+    "tester": "nodemon --exec babel-node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkty/DialogFlow-Tester.git"
+  },
+  "author": "Tae Yoon Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thinkty/DialogFlow-Tester/issues"
+  },
+  "homepage": "https://github.com/thinkty/DialogFlow-Tester#readme",
+  "dependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/polyfill": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "axios": "^0.19.2",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "eslint": "^7.1.0",
+    "express": "^4.17.1",
+    "ngrok": "^3.2.7",
+    "nodemon": "^2.0.4"
+  }
+}

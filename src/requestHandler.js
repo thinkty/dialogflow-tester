@@ -33,6 +33,13 @@ export default function handleRequest(req, res) {
     if (process.env.testing === 'res') {
       // Send your own response
       const resp = createResponse(req.body);
+
+      // Save the response to a file
+      if (!fs.existsSync(resposneDir)) {
+        fs.mkdirSync(resposneDir);
+      }
+      fs.writeFileSync(`${resposneDir}/res-${getTime()}.json`, JSON.stringify(resp));
+
       res.json(resp);
       return;
     }

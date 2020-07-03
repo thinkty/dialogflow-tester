@@ -1,0 +1,11 @@
+{
+  "fulfillmentMessages": [{
+    "text": {
+      "text": ["I was suppose to say: 오 오늘 일찍 일어났네? 잘 잤어?"]
+    }
+  }],
+  "outputContexts": [{
+    "name": "projects/playground-sklyld/agent/sessions/b46af09d-358e-007d-20f5-e9b07a3a7d3b/contexts/exampleContext",
+    "lifespanCount": 3
+  }]
+}

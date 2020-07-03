@@ -58,8 +58,12 @@ export default function handleRequest(req, res) {
  * @param {*} body Request body from Dialog Flow
  */
 function createResponse(body) {
-  const queryResult = body.queryResult;
   const session = body.session;
+  const queryResult = body.queryResult;
+  const userInput = queryResult.queryText;
+  const originalRes = queryResult.fulfillmentText;
+  const action = queryResult.action; // Can be undefined if not provided
+  const lang = queryResult.languageCode;
 
   // Edit this part to send your own response
   return {
@@ -67,8 +71,11 @@ function createResponse(body) {
       {
         text: {
           text: [
-            "Text response from webhook",
-            "Another text response from webhook"
+            "You just said: ",
+            `${userInput}`
+          ],
+          text: [
+            `I was suppose to say: ${originalRes}`
           ]
         }
       }
@@ -78,6 +85,10 @@ function createResponse(body) {
         name: `${session}/contexts/exampleContext`,
         lifespanCount: 3
       }
-    ]
+    ],
+    followupEventInput: {
+      name: "doesnotexist",
+      languageCode: lang
+    }
   };
 }

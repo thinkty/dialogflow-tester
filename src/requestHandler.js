@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import { getTime } from './util.js';
+import generateResponse from './responseHandler.js';
 
 const requestDir = 'webhookRequestLogs';
 const resposneDir = 'webhookResponseLogs';
@@ -27,68 +28,31 @@ export default function handleRequest(req, res) {
       if (!fs.existsSync(requestDir)) {
         fs.mkdirSync(requestDir);
       }
-      fs.writeFileSync(`${requestDir}/req-${getTime()}.json`, JSON.stringify(request));
+      fs.writeFileSync(
+        `${requestDir}/req-${getTime()}.json`, JSON.stringify(request)
+      );
     }
 
     if (process.env.testing === 'res') {
-      // Send your own response
-      const resp = createResponse(req.body);
+      // Generate your own response
+      const resp = generateResponse(request.body);
 
-      // Save the response to a file
+      // Save the response to a local file
       if (!fs.existsSync(resposneDir)) {
         fs.mkdirSync(resposneDir);
       }
-      fs.writeFileSync(`${resposneDir}/res-${getTime()}.json`, JSON.stringify(resp));
+      fs.writeFileSync(
+        `${resposneDir}/res-${getTime()}.json`, JSON.stringify(resp)
+      );
 
+      // Send response to DialogFlow
       res.json(resp);
       return;
     }
     res.sendStatus(200);
 
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.sendStatus(500);
   }
 };
-
-/**
- * Edit this function to create your own response 
- * Reference: https://cloud.google.com/dialogflow/docs/fulfillment-webhook#webhook_response
- * 
- * @param {*} body Request body from Dialog Flow
- */
-function createResponse(body) {
-  const session = body.session;
-  const queryResult = body.queryResult;
-  const userInput = queryResult.queryText;
-  const originalRes = queryResult.fulfillmentText;
-  const action = queryResult.action; // Can be undefined if not provided
-  const lang = queryResult.languageCode;
-
-  // Edit this part to send your own response
-  return {
-    fulfillmentMessages: [
-      {
-        text: {
-          text: [
-            "You just said: ",
-            `${userInput}`
-          ],
-          text: [
-            `I was suppose to say: ${originalRes}`
-          ]
-        }
-      }
-    ],
-    // outputContexts: [
-    //   {
-    //     name: `${session}/contexts/exampleContext`,
-    //     lifespanCount: 3
-    //   }
-    // ],
-    // followupEventInput: {
-    //   name: "doesnotexist",
-    //   languageCode: lang
-    // }
-  };
-}

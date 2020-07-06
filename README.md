@@ -21,11 +21,12 @@ npm install
 3. After successfully launching the application, in the terminal, there should be a secured (https) public url from `ngrok`.
 
 4. Copy the url and paste it in to the DialogFlow console. Go to `DialogFlow console > Fulfillment > Webhook` and paste the ngrok url in the url input field and click save.
+![dialogflow console for webhook](https://imgur.com/hFvSWK0.png)
 
-5. Click on Save and type into the `Try it now` input field to test your webhook. Make sure to enable webhook in the [Fulfillment](https://cloud.google.com/dialogflow/docs/fulfillment-overview) section of the intent.
+5. Click on `Save` and type into the `Try it now` input field to test your webhook. Make sure to enable webhook in the [Fulfillment](https://cloud.google.com/dialogflow/docs/fulfillment-overview) section of the intent.
 
 ## Customization
-You can also modify the [`createResponse`](https://github.com/thinkty/DialogFlow-Tester/blob/dfd2195a25698fe6f9be728d7dd42d1b8cc2bcc0/src/requestHandler.js#L60) function to add your own payloads to the response back to DialogFlow.
+You can also modify the [`generateResponse`](https://github.com/thinkty/DialogFlow-Tester/blob/master/src/responseHandler.js) function to add your own payloads to the response back to DialogFlow.
 
 ### License
 MIT

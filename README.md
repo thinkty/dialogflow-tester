@@ -1,8 +1,8 @@
 ![wehbooks in DialogFlow](https://cloud.google.com/dialogflow/docs/images/fulfillment-flow.svg)
 Image from [DialogFlow](https://cloud.google.com/dialogflow/docs/fulfillment-overview)
 
-# DialogFlow-Tester
-This is a simple Node+Express Webhook to test Dialog Flow V2 APIs.
+# DialogFlow Tester
+This is a simple Node+Express Webhook to test DialogFlow V2 APIs.
 It uses an npm version of [ngrok](https://ngrok.com/) to get a secure public url which is a core [requirement](https://cloud.google.com/dialogflow/docs/fulfillment-webhook#requirements) for registering a webhook to DialogFlow.
 The requests and responses will be stored locally in a json file.
 

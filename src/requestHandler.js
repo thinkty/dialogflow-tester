@@ -33,23 +33,21 @@ export default function handleRequest(req, res) {
       );
     }
 
-    if (process.env.testing === 'res') {
-      // Generate your own response
-      const resp = generateResponse(request.body);
+    // Generate your own response
+    const resp = generateResponse(request.body);
 
-      // Save the response to a local file
+    // Save the response to a local file
+    if (process.env.testing === 'res') {
       if (!fs.existsSync(resposneDir)) {
         fs.mkdirSync(resposneDir);
       }
       fs.writeFileSync(
         `${resposneDir}/res-${getTime()}.json`, JSON.stringify(resp)
       );
-
-      // Send response to DialogFlow
-      res.json(resp);
-      return;
     }
-    res.sendStatus(200);
+    // Send response to DialogFlow
+    res.json(resp);
+    return;
 
   } catch (error) {
     console.log(error);

@@ -5,9 +5,9 @@
   "description": "A simple Node based Webhook to test Dialog Flow APIs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js",
-    "request": "testing=req node index.js",
-    "response": "testing=res node index.js",
+    "start": "nodemon --ignore 'webhookResponseLogs/ webhookRequestLogs/' --exec babel-node index.js",
+    "request": "testing=req nodemon --ignore webhookRequestLogs/ index.js",
+    "response": "testing=res nodemon --ignore webhookResponseLogs/ index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

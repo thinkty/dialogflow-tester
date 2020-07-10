@@ -24,6 +24,7 @@ export default function handleRequest(req, res) {
     };
 
     // Save the request to a file 
+    console.log(request);
     if (process.env.testing === 'req') {
       if (!fs.existsSync(requestDir)) {
         fs.mkdirSync(requestDir);
@@ -34,7 +35,8 @@ export default function handleRequest(req, res) {
     }
 
     // Generate your own response
-    const resp = generateResponse(request.body);
+    const response = generateResponse(request.body);
+    console.log(response);
 
     // Save the response to a local file
     if (process.env.testing === 'res') {
@@ -42,11 +44,11 @@ export default function handleRequest(req, res) {
         fs.mkdirSync(resposneDir);
       }
       fs.writeFileSync(
-        `${resposneDir}/res-${getTime()}.json`, JSON.stringify(resp)
+        `${resposneDir}/res-${getTime()}.json`, JSON.stringify(response)
       );
     }
     // Send response to DialogFlow
-    res.json(resp);
+    res.json(response);
     return;
 
   } catch (error) {

@@ -25,7 +25,7 @@ export default function generateResponse(body) {
   };
 }
 
-
+// Sample keywords
 const keywords = {
   name: "Bob"
 };

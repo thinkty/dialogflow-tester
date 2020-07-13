@@ -8,7 +8,7 @@ import ngrok from 'ngrok';
 import handleRequest from './src/requestHandler.js';
 
 const app = express();
-const port = 3000;
+const port = 3003;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,12 +29,6 @@ app.get('/', (req, res) => {
 
 app.listen(port, async () => {
   console.log(`API tester listening on port ${port}`);
-  console.log(`Testing for ${
-      (process.env.testing === 'req')
-      ? 'requests'
-      : 'responses'
-    } from Dialog Flow`
-  );
   const url = await ngrok.connect(port);
   console.log(`ngrok connected : ${url}`);
 });

@@ -32,7 +32,8 @@ const keywords = {
 // Sample intents
 const LOOP_FALLBACK = 1;
 const intentMap = {
-  "WakeUp-220": LOOP_FALLBACK
+  "WakeUp-220": LOOP_FALLBACK,
+  "Finish-220": LOOP_FALLBACK
 };
 
 
@@ -106,7 +107,7 @@ function handleContext(queryResult) {
  */
 function handleContextWithAction(action, input, contexts) {
 
-  if (action === 'checkAttendance') {
+  if (action === 'checkAttendance' || action === 'checkRecordForToday') {
     if (input.length > 5) {
       return contexts;
     } else {

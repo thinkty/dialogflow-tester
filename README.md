@@ -1,13 +1,11 @@
 # DialogFlow Tester (Mock Fulfillment Webhook)
-This is a simple Node+Express Webhook to test DialogFlow V2 APIs and mock a fulfillment webhook locally while meeting the [requirements](https://cloud.google.com/dialogflow/docs/fulfillment-webhook#requirements).
-It uses an npm version of [ngrok](https://ngrok.com/) to get a secure public url which is a core requirement for registering a webhook to DialogFlow.
-Depending on how the program is started, the requests or responses will be stored locally in a json file.
 
 ![wehbooks in DialogFlow](https://imgur.com/ptthjWz.png)
 Image from [DialogFlow](https://cloud.google.com/dialogflow/docs/fulfillment-overview)
 
-This blue area is what this simple application aims to serve.
-
+This is a simple Node+Express Webhook to test DialogFlow V2 APIs and mock a fulfillment webhook locally while meeting the [requirements](https://cloud.google.com/dialogflow/docs/fulfillment-webhook#requirements).
+It uses an npm version of [ngrok](https://ngrok.com/) to get a secure public url which is a core requirement for registering a webhook to DialogFlow.
+Depending on how the program is started, the requests or responses will be stored locally in a json file.
 
 ## Install
 1. Clone the repository and install the npm dependencies

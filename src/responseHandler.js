@@ -29,16 +29,10 @@ const keywords = {
   name: "Bob"
 };
 
-// Sample intents
-const LOOP_FALLBACK = 1;
-const intentMap = {
-  "WakeUp-220": LOOP_FALLBACK
-};
-
 
 /**
  * Parse the keywords (words wrapped in brackets {}) and replace them
- * with appropriate values.
+ * with appropriate values. Example: {name} => Bob
  * 
  * @param {Array} messages Messages to parse the keywords from
  */
@@ -106,13 +100,7 @@ function handleContext(queryResult) {
  */
 function handleContextWithAction(action, input, contexts) {
 
-  if (action === 'checkAttendance') {
-    if (input.length > 5) {
-      return contexts;
-    } else {
-      return resetContext(contexts);
-    }
-  }
+  // Some code to determine the contexts
   
   return contexts;
 }
@@ -126,14 +114,8 @@ function handleContextWithAction(action, input, contexts) {
  */
 function handleContextWithIntentName(intentName, contexts) {
 
-  // If the given intent name is defined, handle it based on the map
-  if (intentMap[intentName]) {
-    if (intentMap[intentName] === LOOP_FALLBACK) {
-      return extendContext(contexts);
-    }
-  }
+  // Some code to determine the contexts when action is not given
 
-  // If the intent is not defined in the intent map, do not modify the contexts
   return contexts;
 }
 
@@ -152,31 +134,9 @@ function createFulfillmentMessages(action, input, messages) {
     return messages;
   }
 
-  if (action === 'checkAttendance') {
-    if (input.length > 5) {
-      return [
-        {
-          text: {
-            text: [
-              "Hello!"
-            ]
-          }
-        }
-      ];
-    } else {
-      return messages;
-    }
-  } else {
-    return [
-      {
-        text: {
-          text: [
-            `Unrecognized action: ${action}`
-          ]
-        }
-      }
-    ];
-  }
+  // Some code to determine the fulfillment message based on action
+  
+  return messages;
 }
 
 

@@ -11,7 +11,7 @@ Depending on how the program is started, the requests or responses will be store
 1. Clone the repository and install the npm dependencies
 
 ```
-git clone https://github.com/thinkty/DialogFlow-Tester.git
+git clone https://github.com/thinkty/dialogflow-tester.git
 ```
 
 ```
